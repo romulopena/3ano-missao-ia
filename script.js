@@ -6,21 +6,29 @@ const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
-        enunciado: "pergunta1",
+        enunciado: "Qual a melhor maneira de se combater o desmatamento?",
         alternativas: [
-            "alternativa1",
-            "alternativa2"
+            "reflorestamento de áreas degradadas",
+            "Implementação de leis mais rigorosas para a proteção das florestas"
         ]
     },
     {
-        enunciado: "pergunta2",
+        enunciado: "Como podemos combater a desigualdade social de forma eficaz e sustentável?",
         alternativas: [
-            "alternativa1",
-            "alternativa2"
+            "Implementar programas de educação e formação profissional acessíveis a todos",
+            "políticas de redistribuição de renda e oportunidades"
         ]
     },
 ];
 
+let atual = 0;
+let perguntaAtual;
+
+function mostraPergunta(){ //criando a função para mostrar a pergunta
+    perguntaAtual = perguntas[atual]; //guardando a lista de perguntas dentro da variavel perguntaAtual
+    caixaPerguntas.textContent = perguntaAtual.enunciado; //manipulação do conteúdo do texto e do enunciado
+}
+mostraPergunta(); //executando a função de mostrar a pergunta.
 
 
 
