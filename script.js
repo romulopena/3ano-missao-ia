@@ -8,15 +8,30 @@ const perguntas = [
     {
         enunciado: "Qual a melhor maneira de se combater o desmatamento?",
         alternativas: [
-            "reflorestamento de áreas degradadas",
-            "Implementação de leis mais rigorosas para a proteção das florestas"
+ //Listenner
+            {
+              texto: "reflorestamento de áreas degradadas",
+              afirmação: "Porque é importante replantar para solucionar"
+            },
+            {
+                texto: "Implementação de leis mais rigorosas para a proteção das florestas",
+                afirmação: "Penalizando é uma forma de inibir a exploração"
+            }
+            
         ]
     },
     {
         enunciado: "Como podemos combater a desigualdade social de forma eficaz e sustentável?",
         alternativas: [
-            "Implementar programas de educação e formação profissional acessíveis a todos",
-            "políticas de redistribuição de renda e oportunidades"
+            {
+                texto: "Implementar programas de educação e formação profissional acessíveis a todos",
+                afirmação: "Ação necessária para oportunizar conhecimento"
+            },
+            {
+                texto: "políticas de redistribuição de renda e oportunidades",
+                afirmação: "Uso correto dos recursos a quem mais precisa"
+            }
+              
         ]
     },
 ];
@@ -34,7 +49,15 @@ mostraPergunta();
 function mostraAlternativas() {
     for (const alternativas of perguntaAtual.alternativas) {
       const botaoAlternativas = document.createElement("button");
-      botaoAlternativas.textContent = alternativas;
+//insercao do atributo .texto
+      botaoAlternativas.textContent = alternativas.texto;
+      //adição de evento de escuta
+      botaoAlternativas.addEventListener
+        ("click", function(){
+        atual++;
+        mostraPergunta();
+        }
+        )
       caixaAlternativas.appendChild(botaoAlternativas);
     }
   }
