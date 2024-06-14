@@ -30,8 +30,7 @@ const perguntas = [
             {
                 texto: "políticas de redistribuição de renda e oportunidades",
                 afirmação: "Uso correto dos recursos a quem mais precisa"
-            }
-              
+            }           
         ]
     },
 ];
