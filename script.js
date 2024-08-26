@@ -24,18 +24,20 @@ const perguntas = [
 let atual = 0;
 let perguntaAtual;
 
-function mostraPergunta(){
-    perguntaAtual = perguntas[atual];
-    caixaPerguntas.textContent = perguntaAtual.enunciado;
+function mostraPergunta(){                //mostrando as perguntas
+    perguntaAtual = perguntas[atual];     //inicia a lista de perguntas pelo item 0 da lista
+    caixaPerguntas.textContent = perguntaAtual.enunciado; //mostra o texto da pergunta
+    caixaAlternativas.textContent = "";  //limpa o texto da caixa de alternativas
+    mostraAlternativas();                //executa a função mostraAlternativa.
 }
 
-mostraPergunta();
+mostraPergunta();                       //executa a função mostraPergunta.
 
-function mostraAlternativas() {
-    for (const alternativas of perguntaAtual.alternativas) {
-      const botaoAlternativas = document.createElement("button");
-      botaoAlternativas.textContent = alternativas;
-      caixaAlternativas.appendChild(botaoAlternativas);
+function mostraAlternativas() {         //criando os botões de alternativas 
+    for (const alternativa of perguntaAtual.alternativas) {
+      const botaoAlternativas = document.createElement("button"); //criando botão
+      botaoAlternativas.textContent = alternativa; //salvando o texto da alternativa no botão
+      caixaAlternativas.appendChild(botaoAlternativas); //insere o botão na DIV do HTML
     }
   }
-mostraAlternativas();  
+  
