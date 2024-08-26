@@ -21,8 +21,9 @@ const perguntas = [
     },
 ];
 
-let atual = 0;
-let perguntaAtual;
+let atual = 0;   //variavel que inicia a pergunta 1
+let perguntaAtual;  //variavel que recebe a pergunta atual e mostra o enunciado da pergunta
+let historiaFinal = "";  //variavel que irá mostrar no final o resumo das afirmativas
 
 function mostraPergunta(){                //mostrando as perguntas
     perguntaAtual = perguntas[atual];     //inicia a lista de perguntas pelo item 0 da lista
@@ -36,7 +37,8 @@ mostraPergunta();                       //executa a função mostraPergunta.
 function mostraAlternativas() {         //criando os botões de alternativas 
     for (const alternativa of perguntaAtual.alternativas) {
       const botaoAlternativas = document.createElement("button"); //criando botão
-      botaoAlternativas.textContent = alternativa; //salvando o texto da alternativa no botão
+      botaoAlternativas.textContent = alternativa.texto; //salvando o texto da alternativa no botão
+      botaoAlternativas.addEventListener('click', ()=> respostaSelecionada(alternativa));
       caixaAlternativas.appendChild(botaoAlternativas); //insere o botão na DIV do HTML
     }
   }
