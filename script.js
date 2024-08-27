@@ -32,14 +32,26 @@ function mostraPergunta(){                //mostrando as perguntas
     mostraAlternativas();                //executa a função mostraAlternativa.
 }
 
-mostraPergunta();                       //executa a função mostraPergunta.
-
 function mostraAlternativas() {         //criando os botões de alternativas 
     for (const alternativa of perguntaAtual.alternativas) {
-      const botaoAlternativas = document.createElement("button"); //criando botão
-      botaoAlternativas.textContent = alternativa.texto; //salvando o texto da alternativa no botão
-      botaoAlternativas.addEventListener('click', ()=> respostaSelecionada(alternativa));
-      caixaAlternativas.appendChild(botaoAlternativas); //insere o botão na DIV do HTML
+        const botaoAlternativas = document.createElement("button"); //criando botão
+        botaoAlternativas.textContent = alternativa.texto; //salvando o texto da alternativa no botão
+        botaoAlternativas.addEventListener('click', ()=> respostaSelecionada(alternativa)); 
+        //adiciona o método de escuta do click e aciona a função respostaSelecionada chamando a alternativa.
+        caixaAlternativas.appendChild(botaoAlternativas); //insere o botão na DIV do HTML
     }
-  }
-  
+}
+
+function respostaSelecionada(opcaoSelecionada){   //função para guardar a resposta Selecionada das afirmações.
+    const afirmacao = opcaoSelecionada.afirmacao;  //cria a constante afirmacao para guardar o atributo afirmacao
+    historiaFinal += afirmacao + " ";    //variavel historiaFinal coleta os dados de todas as afirmações
+    atual++;                                 //atualiza a variavel "atual" percorrendo os itens da lista de perguntas
+    mostraPergunta();                       //executa a função mostraPergunta.
+}  
+
+function mostraResultado(){
+    caixaPerguntas.textContent = "Síntese final...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent = "";
+
+}
